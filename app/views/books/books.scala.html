@@ -1,0 +1,24 @@
+@(books: List[Book])
+
+@main("Books") {
+        <table class="table color-default">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Cím</th>
+                    <th scope="col">Ár</th>
+                    <th scope="col">Iró</th>
+                </tr>
+            </thead>
+            <tbody>
+            @for(book <- books) {
+                <tr>
+                    <th scope="row">@book.id</th>
+                    <td><a class="color-default" href="@routes.BooksController.edit(book.id)">@book.bookTitle</a></td>
+                    <td>@book.price</td>
+                    <td>@book.author</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+}

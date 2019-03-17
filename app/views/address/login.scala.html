@@ -1,0 +1,44 @@
+@(form: Form[Login])
+
+@main("Teszt") {
+    @helper.form(action = routes.LoginController.authenticate()) {
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="my-style">
+                        <div class="my-flex">
+                            <h1>Belépés</h1>
+                            @if(form.hasGlobalErrors) {
+                                <p>
+                                @for(error <- form.globalErrors) {
+                                    <p class="color-default">@error.format(messages)</p>
+                                }
+                                </p>
+                            }
+                        </div>
+
+                        <form>
+                            <div class="form-group">
+                                <div class="input-group input-group-lg">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <input class="form-control" type="email" name="email" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group input-group-lg">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-unlock"></i></span>
+                                    </div>
+                                    <input class="form-control" type="password" name="password" placeholder="Password">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-lg my-button">Belépés</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

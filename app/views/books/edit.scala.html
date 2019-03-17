@@ -1,0 +1,42 @@
+@(bookFrom: Form[Book])
+
+
+    @helper.form(routes.BooksController.update()) {
+        <form>
+            <div class="form-group hidden">
+            @helper.inputText(bookFrom("id"), 'class -> "form-control", '_label -> "Id")
+            </div>
+            <div class="form-group color-default">
+                @helper.inputText(bookFrom("bookTitle"), 'class -> "form-control", '_label -> "A könyv címe")
+                @*<label for="bookTitle" class="color-default">A könyv címe</label>*@
+                @*<input type="text" class="form-control" id="bookTitle" value='@bookFrom("bookTitle").getValue().get()'>*@
+                @*<small class="form-text text-muted">*@
+                @for(error <- bookFrom("bookTitle").errors) {
+                    <p class="color-default">@error.format(messages)</p>
+                }
+            </small>
+            </div>
+            <div class="form-group color-default">
+                @*<label for="price" class="color-default">A könyv ára</label>*@
+                @*<input type="text" class="form-control" id="price" value='@bookFrom("price").getValue().get()'>*@
+                @*<small class="form-text text-muted">*@
+                @helper.inputText(bookFrom("price"), 'class -> "form-control", '_label -> "A könyv ára")
+                @for(error <- bookFrom("price").errors) {
+                    <p class="color-default">@error.format(messages)</p>
+                }
+            </small>
+            </div>
+            <div class="form-group color-default">
+                @*<label for="author" class="color-default">Szerző</label>*@
+                @*<input type="text" class="form-control" id="author" value='@bookFrom("author").getValue().get()'>*@
+                @*<small class="form-text text-muted">*@
+                @helper.inputText(bookFrom("author"), 'class -> "form-control", '_label -> "Szerző")
+                @for(error <- bookFrom("author").errors) {
+                    <p class="color-default">@error.format(messages)</p>
+                }
+            </small>
+            </div>
+
+            <input type="submit" class="btn btn-primary" value="Mentés">
+        </form>
+    }

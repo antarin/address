@@ -1,0 +1,31 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+
+GET     /                           controllers.LoginController.login
+POST    /login                      controllers.LoginController.authenticate()
+GET     /logout                     controllers.LoginController.logout()
+
+
+GET     /books                      controllers.BooksController.index
+GET     /books/create               controllers.BooksController.create
+POST    /books/save                 controllers.BooksController.save
+GET     /books/:id                  controllers.BooksController.showBook(id: Long)
+GET     /books/edit/:id             controllers.BooksController.edit(id: Long)
+POST    /books/edit                 controllers.BooksController.update
+GET     /books/delete/:id           controllers.BooksController.delete(id: Long)
+
+GET     /address                    controllers.AddressController.index
+GET     /address/create             controllers.AddressController.create
+POST    /address/save               controllers.AddressController.save
+GET     /address/:id                controllers.AddressController.showAddress(id: Long)
+GET     /address/edit/:id           controllers.AddressController.edit(id: Long)
+POST    /address/edit               controllers.AddressController.update
+GET     /address/delete/:id         controllers.AddressController.delete(id: Long)
+
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

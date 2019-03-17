@@ -1,0 +1,24 @@
+@(addresses: List[Address])
+
+@main("Address") {
+        <table class="table color-default">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Irányítószám</th>
+                    <th scope="col">Város</th>
+                    <th scope="col">Közterület, házszám</th>
+                </tr>
+            </thead>
+            <tbody>
+            @for(address <- addresses) {
+                <tr>
+                    <th scope="row">@address.id</th>
+                    <td><a class="color-default" href="@routes.AddressController.edit(address.id)">@address.postalCode</a></td>
+                    <td>@address.city</td>
+                    <td>@address.restOfAddress</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+}

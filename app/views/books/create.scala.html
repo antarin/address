@@ -1,0 +1,39 @@
+@(bookFrom: Form[Book])
+
+@main("Create book") {
+
+    @helper.form(routes.BooksController.save()) {
+        <form>
+            <div class="form-group">
+                <label for="bookTitle"  class="color-default">A könyv címe</label>
+                <input type="text" class="form-control" id="bookTitle" required>
+                <small class="form-text text-muted">
+                @for(error <- bookFrom("bookTitle").errors) {
+                    <p class="color-default">@error.format(messages)</p>
+                }
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="price"  class="color-default">A könyv ára</label>
+                <input type="text" class="form-control" id="price" required>
+                <small class="form-text text-muted">
+                @for(error <- bookFrom("price").errors) {
+                    <p class="color-default">@error.format(messages)</p>
+                }
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="author"  class="color-default">Szerző</label>
+                <input type="text" class="form-control" id="author" required>
+                <small class="form-text text-muted">
+                @for(error <- bookFrom("author").errors) {
+                    <p class="color-default">@error.format(messages)</p>
+                }
+                </small>
+            </div>
+
+            <input type="submit" class="btn btn-primary" value="Új Könyv">
+        </form>
+    }
+
+}

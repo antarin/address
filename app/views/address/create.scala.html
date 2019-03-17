@@ -1,0 +1,21 @@
+@(addressForm: Form[Address])
+
+@main("Create book") {
+
+    @helper.form(routes.AddressController.save()) {
+        <form>
+            <div class="form-group">
+            @helper.inputText(addressForm("postalCode"), 'class -> "form-control", '_label -> "Irányítószám")
+            </div>
+            <div class="form-group">
+            @helper.inputText(addressForm("city"), 'class -> "form-control", '_label -> "Város")
+            </div>
+            <div class="form-group">
+            @helper.inputText(addressForm("restOfAddress"), 'class -> "form-control", '_label -> "Közterület, házszám")
+            </div>
+
+            <input type="submit" class="btn btn-primary" value="Új cím mentése">
+        </form>
+    }
+
+}

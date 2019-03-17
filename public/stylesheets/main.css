@@ -1,0 +1,92 @@
+:root {
+    --primary: #333333;
+    --accent: #434343;
+    --warning: #e60000;
+    --default: white;
+}
+
+.color-default {
+    color: var(--default);
+}
+
+.hidden {
+    display: none;
+}
+
+.my-style {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    min-height: 30vh;
+    max-width: 40vw;
+    background-color: var(--accent);
+    flex-direction: column;
+    box-shadow: 0px 0px 15px 5px var(--default);
+}
+
+h3 {
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 0;
+}
+
+.fa {
+    color: #88BDBC;
+    font-size: 1.8rem;
+}
+
+.my-flex {
+    margin-top: 10%;
+    margin-bottom: 10%;
+    text-align: center;
+}
+
+.btn {
+    margin-bottom: 20% !important;
+    background-color: var(--accent);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary);
+}
+
+form {
+    padding: 6px;
+}
+
+.my-button {
+    margin-top: 15px;
+    width: 90%;
+    color: var(--default);
+    background-color: var(--warning);
+}
+
+.header-color {
+    background-color: var(--default) !important;
+}
+
+.navbar {
+    background-color: var(--default) !important;
+    border-bottom: 2px solid var(--warning);
+}
+
+.navbar-brand {
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 0 5px;
+}
+
+.nav-link, .navbar-brand {
+    color: var(--accent) !important;
+    font-size: 1.2em;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 2em;
+}

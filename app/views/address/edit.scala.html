@@ -1,0 +1,33 @@
+@(addressForm: Form[Address])
+
+
+    @helper.form(routes.AddressController.update()) {
+        <form>
+            <div class="form-group hidden">
+            @helper.inputText(addressForm("id"))
+            </div>
+            <div class="form-group color-default">
+                @helper.inputText(addressForm("postalCode"), 'class -> "form-control", '_label -> "Irányítószám")
+                @for(error <- addressForm("postalCode").errors) {
+                    <p class="color-default">@error.format(messages)</p>
+                }
+            </small>
+            </div>
+            <div class="form-group color-default">
+                @helper.inputText(addressForm("city"), 'class -> "form-control", '_label -> "Város")
+                @for(error <- addressForm("city").errors) {
+                    <p class="color-default">@error.format(messages)</p>
+                }
+            </small>
+            </div>
+            <div class="form-group color-default">
+                @helper.inputText(addressForm("restOfAddress"), 'class -> "form-control", '_label -> "Közterület, házszám")
+                @for(error <- addressForm("restOfAddress").errors) {
+                    <p class="color-default">@error.format(messages)</p>
+                }
+            </small>
+            </div>
+
+            <input type="submit" class="btn btn-primary" value="Mentés">
+        </form>
+    }
